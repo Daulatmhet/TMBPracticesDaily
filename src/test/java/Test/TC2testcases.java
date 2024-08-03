@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 
 import com.tmb.driver.DriverManager;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class TC2testcases {
 	
 	
@@ -27,6 +29,7 @@ public class TC2testcases {
 	public void test2() throws Exception
 	{
 		
+		WebDriverManager.chromedriver().setup();
 		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Automation selnium testing",Keys.ENTER);
 		
 		
@@ -63,7 +66,7 @@ public class TC2testcases {
 	
 	}
 	
-	
+
 
 }
 
