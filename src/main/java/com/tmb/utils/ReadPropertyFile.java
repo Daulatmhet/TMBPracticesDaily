@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
@@ -33,13 +32,13 @@ public final class ReadPropertyFile {
 		
 		for(Object key : property.keySet())
 		{
-			CONFIGMAP.put(String.valueOf(key),String.valueOf(property.get(key)));
+			CONFIGMAP.put(String.valueOf(key),String.valueOf(property.get(key))).trim();
 		}
 		
-		for(Map.Entry<Object, Object>entry:property.entrySet())
-		{
-			CONFIGMAP.put(String.valueOf(entry.getKey()),String.valueOf(entry.getValue()));
-		}
+//		for(Map.Entry<Object, Object>entry:property.entrySet())
+//		{
+//			CONFIGMAP.put(String.valueOf(entry.getKey()),String.valueOf(entry.getValue()));
+//		}
 		
 		
 		//If You know Lambda Expression
