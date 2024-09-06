@@ -30,24 +30,27 @@ public final class ReadPropertyFile {
 		try {
 		FileInputStream file = new FileInputStream(FramworkConstants.getConfigFilepath());
 		property.load(file);
+//		
+//		for(Object key : property.keySet())
+//		{
+//			CONFIGMAP.put(String.valueOf(key),String.valueOf(property.get(key)));
+//		}
 		
-		for(Object key : property.keySet())
+	for(Map.Entry<Object, Object>entry:property.entrySet())
 		{
-			CONFIGMAP.put(String.valueOf(key),String.valueOf(property.get(key)));
+			CONFIGMAP.put(String.valueOf(entry.getKey()),String.valueOf(entry.getValue()).trim());
 		}
 		
-		for(Map.Entry<Object, Object>entry:property.entrySet())
-		{
-			CONFIGMAP.put(String.valueOf(entry.getKey()),String.valueOf(entry.getValue()));
-		}
-		
+	
+	//trim remove trailing and leading spaces
+	
 		
 		//If You know Lambda Expression
 		// so you can go this approch
 	//	property.entrySet().forEach(entry ->CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue())));
 		
-	}
-		catch(FileNotFoundException e) {
+	
+		}catch(FileNotFoundException e) {
 			
 			e.printStackTrace();
 		}
